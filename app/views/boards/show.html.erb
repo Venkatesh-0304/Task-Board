@@ -1,0 +1,16 @@
+<%# app/views/boards/show.html.erb %>
+<div class="min-h-screen bg-gray-100 p-8">
+  <h1 class="text-2xl font-bold mb-6"><%= @board.name %></h1>
+
+  <div class="flex gap-6">
+    <% @board.columns.each do |column| %>
+      <div class="bg-gray-200 rounded-lg p-4 w-72 flex-shrink-0">
+        <h2 class="font-semibold mb-3"><%= column.name %></h2>
+
+        <div id="<%= dom_id(column, :cards) %>" class="space-y-3">
+          <%= render column.cards %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
